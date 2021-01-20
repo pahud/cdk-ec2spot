@@ -1,3 +1,7 @@
+[![NPM version](https://badge.fury.io/js/cdk-ec2spot.svg)](https://badge.fury.io/js/cdk-ec2spot)
+[![PyPI version](https://badge.fury.io/py/cdk-ec2spot.svg)](https://badge.fury.io/py/cdk-ec2spot)
+![Release](https://github.com/pahud/cdk-ec2spot/workflows/Release/badge.svg)
+
 # `cdk-ec2spot`
 
 CDK construct library that allows you to create EC2 Spot instances with AWS AutoScaling Group or SpotFleet

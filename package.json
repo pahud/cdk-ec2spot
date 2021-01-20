@@ -1,8 +1,9 @@
 {
   "name": "cdk-ec2spot",
+  "description": "CDK construct library for EC2 Spot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pahudnet/cdk-ec2spot.git"
+    "url": "https://github.com/pahud/cdk-ec2spot.git"
   },
   "scripts": {
     "projen": "npx projen",
@@ -24,7 +25,7 @@
     "docgen": "npx projen docgen"
   },
   "author": {
-    "name": "Pahud",
+    "name": "Pahud Hsieh",
     "email": "pahudnet@gmail.com",
     "organization": false
   },
@@ -52,7 +53,17 @@
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
+    "@aws-cdk/aws-autoscaling": "^1.73.0",
+    "@aws-cdk/aws-ec2": "^1.73.0",
+    "@aws-cdk/aws-iam": "^1.73.0",
+    "@aws-cdk/core": "^1.73.0",
     "constructs": "^3.2.27"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-autoscaling": "^1.73.0",
+    "@aws-cdk/aws-ec2": "^1.73.0",
+    "@aws-cdk/aws-iam": "^1.73.0",
+    "@aws-cdk/core": "^1.73.0"
   },
   "bundledDependencies": [],
   "keywords": [
@@ -104,7 +115,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "cdk-ec2spot",
+        "module": "cdk_ec2spot"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"

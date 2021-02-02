@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/pahud/cdk-ec2spot/compare/v0.0.14...v0.0.15) (2021-02-02)
+
+
+### Features
+
+* spotfleet support ([#20](https://github.com/pahud/cdk-ec2spot/issues/20)) ([7e0f7b7](https://github.com/pahud/cdk-ec2spot/commit/7e0f7b7e3f6dcde4636b970cd0d4b2f53231f6aa)), closes [#19](https://github.com/pahud/cdk-ec2spot/issues/19)
+
 ### [0.0.14](https://github.com/pahud/cdk-ec2spot/compare/v0.0.13...v0.0.14) (2021-02-02)
 
 ### [0.0.13](https://github.com/pahud/cdk-ec2spot/compare/v0.0.12...v0.0.13) (2021-02-01)

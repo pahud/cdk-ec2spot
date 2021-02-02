@@ -13,6 +13,47 @@ Object {
     },
   },
   "Resources": Object {
+    "ProviderFleetRoleCE8E9F00": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "spotfleet.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ProviderInstanceProfileDefaultInstanceProfile32ECC425": Object {
+      "Properties": Object {
+        "Roles": Array [
+          Object {
+            "Ref": "ProviderRoleDefaultInstanceProfileFC36CD5D",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::InstanceProfile",
+    },
     "ProviderLaunchTemplateSpotASGD05EE9FF": Object {
       "Properties": Object {
         "LaunchTemplateData": Object {
@@ -28,12 +69,41 @@ Object {
             "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
           },
           "InstanceMarketOptions": Object {
+            "MarketType": "spot",
             "SpotOptions": Object {},
           },
           "InstanceType": "m5.large",
+          "TagSpecifications": Array [
+            Object {
+              "ResourceType": "instance",
+              "Tags": Array [
+                Object {
+                  "Key": "Name",
+                  "Value": "integ-stack/Provider/LaunchTemplateSpotASG",
+                },
+              ],
+            },
+          ],
         },
       },
       "Type": "AWS::EC2::LaunchTemplate",
+    },
+    "ProviderRoleDefaultInstanceProfileFC36CD5D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "ec2.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
     },
     "ProviderSpotASG0BC8F946": Object {
       "Properties": Object {
@@ -173,6 +243,87 @@ Object {
         },
       },
       "Type": "AWS::AutoScaling::LaunchConfiguration",
+    },
+    "ProviderSpotFleetE76488C7": Object {
+      "Properties": Object {
+        "LaunchTemplateData": Object {
+          "IamInstanceProfile": Object {
+            "Arn": Object {
+              "Fn::GetAtt": Array [
+                "ProviderInstanceProfileDefaultInstanceProfile32ECC425",
+                "Arn",
+              ],
+            },
+          },
+          "ImageId": Object {
+            "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
+          },
+          "InstanceMarketOptions": Object {
+            "MarketType": "spot",
+            "SpotOptions": Object {},
+          },
+          "InstanceType": "t3.large",
+          "TagSpecifications": Array [
+            Object {
+              "ResourceType": "instance",
+              "Tags": Array [
+                Object {
+                  "Key": "Name",
+                  "Value": "integ-stack/Provider/SpotFleet",
+                },
+              ],
+            },
+          ],
+        },
+      },
+      "Type": "AWS::EC2::LaunchTemplate",
+    },
+    "ProviderSpotFleetResource0D1CD211": Object {
+      "Properties": Object {
+        "SpotFleetRequestConfigData": Object {
+          "IamFleetRole": Object {
+            "Fn::GetAtt": Array [
+              "ProviderFleetRoleCE8E9F00",
+              "Arn",
+            ],
+          },
+          "LaunchTemplateConfigs": Array [
+            Object {
+              "LaunchTemplateSpecification": Object {
+                "LaunchTemplateId": Object {
+                  "Ref": "ProviderSpotFleetE76488C7",
+                },
+                "Version": Object {
+                  "Fn::GetAtt": Array [
+                    "ProviderSpotFleetE76488C7",
+                    "LatestVersionNumber",
+                  ],
+                },
+              },
+              "Overrides": Array [
+                Object {
+                  "SubnetId": Object {
+                    "Ref": "VpcPrivateSubnet1Subnet536B997A",
+                  },
+                },
+                Object {
+                  "SubnetId": Object {
+                    "Ref": "VpcPrivateSubnet2Subnet3788AAA1",
+                  },
+                },
+                Object {
+                  "SubnetId": Object {
+                    "Ref": "VpcPrivateSubnet3SubnetF258B56E",
+                  },
+                },
+              ],
+            },
+          ],
+          "TargetCapacity": 2,
+          "TerminateInstancesWithExpiration": true,
+        },
+      },
+      "Type": "AWS::EC2::SpotFleet",
     },
     "Vpc8378EB38": Object {
       "Properties": Object {

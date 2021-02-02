@@ -25,6 +25,12 @@ export class IntegTesting {
       instanceType: new ec2.InstanceType('m5.large'),
     });
 
+    provider.createSpotFleet('SpotFleet', {
+      vpc,
+      defaultCapacitySize: 2,
+      instanceType: new ec2.InstanceType('t3.large'),
+    });
+
     this.stack = [stack];
   }
 }

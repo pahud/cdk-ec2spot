@@ -24,3 +24,16 @@ provider.createAutoScalingGroup('SpotASG', {
   instanceType: new ec2.InstanceType('m5.large'),
 });
 ```
+
+# EC2 Spot Fleet support
+
+In addition to EC2 AutoScaling Group, you may use `createSpotFleet()` to create an EC2 Spot Fleet:
+
+
+```ts
+provider.createSpotFleet('SpotFleet', {
+  vpc,
+  defaultCapacitySize: 2,
+  instanceType: new ec2.InstanceType('t3.large'),
+});
+```

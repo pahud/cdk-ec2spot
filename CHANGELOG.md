@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.33](https://github.com/pahud/cdk-ec2spot/compare/v0.0.32...v0.0.33) (2021-02-18)
+
+### [0.0.32](https://github.com/pahud/cdk-ec2spot/compare/v0.0.31...v0.0.32) (2021-02-17)
+
+### [0.0.31](https://github.com/pahud/cdk-ec2spot/compare/v0.0.30...v0.0.31) (2021-02-16)
+
+### [0.0.30](https://github.com/pahud/cdk-ec2spot/compare/v0.0.29...v0.0.30) (2021-02-15)
+
+### [0.0.29](https://github.com/pahud/cdk-ec2spot/compare/v0.0.28...v0.0.29) (2021-02-14)
+
+### [0.0.28](https://github.com/pahud/cdk-ec2spot/compare/v0.0.27...v0.0.28) (2021-02-13)
+
+### [0.0.27](https://github.com/pahud/cdk-ec2spot/compare/v0.0.26...v0.0.27) (2021-02-12)
+
+### [0.0.26](https://github.com/pahud/cdk-ec2spot/compare/v0.0.25...v0.0.26) (2021-02-11)
+
+### [0.0.25](https://github.com/pahud/cdk-ec2spot/compare/v0.0.24...v0.0.25) (2021-02-11)
+
+### [0.0.24](https://github.com/pahud/cdk-ec2spot/compare/v0.0.23...v0.0.24) (2021-02-10)
+
+### [0.0.23](https://github.com/pahud/cdk-ec2spot/compare/v0.0.22...v0.0.23) (2021-02-09)
+
+### [0.0.22](https://github.com/pahud/cdk-ec2spot/compare/v0.0.21...v0.0.22) (2021-02-08)
+
+### [0.0.21](https://github.com/pahud/cdk-ec2spot/compare/v0.0.20...v0.0.21) (2021-02-07)
+
+### [0.0.20](https://github.com/pahud/cdk-ec2spot/compare/v0.0.19...v0.0.20) (2021-02-06)
+
+### [0.0.19](https://github.com/pahud/cdk-ec2spot/compare/v0.0.18...v0.0.19) (2021-02-05)
+
+### [0.0.18](https://github.com/pahud/cdk-ec2spot/compare/v0.0.17...v0.0.18) (2021-02-04)
+
+### [0.0.17](https://github.com/pahud/cdk-ec2spot/compare/v0.0.16...v0.0.17) (2021-02-04)
+
+### [0.0.16](https://github.com/pahud/cdk-ec2spot/compare/v0.0.15...v0.0.16) (2021-02-03)
+
+### [0.0.15](https://github.com/pahud/cdk-ec2spot/compare/v0.0.14...v0.0.15) (2021-02-02)
+
+
+### Features
+
+* spotfleet support ([#20](https://github.com/pahud/cdk-ec2spot/issues/20)) ([7e0f7b7](https://github.com/pahud/cdk-ec2spot/commit/7e0f7b7e3f6dcde4636b970cd0d4b2f53231f6aa)), closes [#19](https://github.com/pahud/cdk-ec2spot/issues/19)
+
 ### [0.0.14](https://github.com/pahud/cdk-ec2spot/compare/v0.0.13...v0.0.14) (2021-02-02)
 
 ### [0.0.13](https://github.com/pahud/cdk-ec2spot/compare/v0.0.12...v0.0.13) (2021-02-01)

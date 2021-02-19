@@ -22,6 +22,7 @@ const project = new AwsCdkConstructLibrary({
     module: 'cdk_ec2spot',
   },
   releaseBranches: ['main'],
+  defaultReleaseBranch: ['main'],
 });
 
 // create a custom projen and yarn upgrade workflow

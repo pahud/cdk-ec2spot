@@ -36,6 +36,10 @@ export class IntegTesting {
     // create single spot instance
     provider.createInstance('SpotInstance', { vpc });
 
+    // create another instance with new provider
+    new ec2spot.Provider(stack, 'Provider2')
+      .createInstance('SpotInstance2', { vpc });
+
     this.stack = [stack];
   }
 }

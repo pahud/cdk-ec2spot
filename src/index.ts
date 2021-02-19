@@ -2,6 +2,7 @@ import * as autoscaling from '@aws-cdk/aws-autoscaling';
 import * as ec2 from '@aws-cdk/aws-ec2';
 import * as iam from '@aws-cdk/aws-iam';
 import * as cdk from '@aws-cdk/core';
+import * as spotone from 'cdk-spot-one';
 
 export enum SpotInstanceType {
   ONE_TIME = 'one-time',
@@ -147,7 +148,7 @@ export class Provider extends cdk.Construct {
    * @param id fleet id
    * @param options spot fleet options
    */
-  public createSpotFleet(id: string, options: SpotFleetOptions): ec2.CfnSpotFleet {
+  public createFleet(id: string, options: SpotFleetOptions): ec2.CfnSpotFleet {
     const lt = this.createLaunchTemplate(id, {
       instanceProfile: options.instanceProfile,
       instanceType: options.instanceType,
@@ -221,5 +222,8 @@ export class Provider extends cdk.Construct {
       Version: lt.attrLatestVersionNumber,
     });
     return asg;
+  }
+  public createInstance(id: string, optons: spotone.SpotInstanceProps): spotone.SpotInstance {
+    return new spotone.SpotInstance(this, id, optons);
   }
 }

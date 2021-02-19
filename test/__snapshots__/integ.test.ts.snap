@@ -2,6 +2,16 @@
 
 exports[`integ snapshot validation 1`] = `
 Object {
+  "Outputs": Object {
+    "ProviderSpotInstancePublicIpAddress59D4F388": Object {
+      "Value": Object {
+        "Fn::GetAtt": Array [
+          "ProviderSpotInstance1D9392D6",
+          "PublicIp",
+        ],
+      },
+    },
+  },
   "Parameters": Object {
     "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": Object {
       "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2",
@@ -324,6 +334,156 @@ Object {
         },
       },
       "Type": "AWS::EC2::SpotFleet",
+    },
+    "ProviderSpotInstance1D9392D6": Object {
+      "DependsOn": Array [
+        "ProviderSpotInstanceInstanceRole27054486",
+      ],
+      "Properties": Object {
+        "AvailabilityZone": "dummy1a",
+        "BlockDeviceMappings": Array [
+          Object {
+            "DeviceName": "/dev/xvda",
+            "Ebs": Object {
+              "VolumeSize": 60,
+            },
+          },
+        ],
+        "ImageId": Object {
+          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
+        },
+        "InstanceType": "t3.large",
+        "LaunchTemplate": Object {
+          "LaunchTemplateId": Object {
+            "Ref": "ProviderSpotInstancelaunchTemplateForInstanceLaunchTemplateDF176CD0",
+          },
+          "Version": Object {
+            "Fn::GetAtt": Array [
+              "ProviderSpotInstancelaunchTemplateForInstanceLaunchTemplateDF176CD0",
+              "LatestVersionNumber",
+            ],
+          },
+        },
+        "SecurityGroupIds": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "ProviderSpotInstanceSpotFleetSg53682A1F",
+              "GroupId",
+            ],
+          },
+        ],
+        "SubnetId": Object {
+          "Ref": "VpcPublicSubnet1Subnet5C2D37C4",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "integ-stack/Provider/SpotInstance/SpotInstance",
+          },
+        ],
+        "UserData": Object {
+          "Fn::Base64": "#!/bin/bash
+yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+yum install -y docker
+usermod -aG docker ec2-user
+usermod -aG docker ssm-user
+service docker start",
+        },
+      },
+      "Type": "AWS::EC2::Instance",
+    },
+    "ProviderSpotInstanceEIP9043B9CB": Object {
+      "Type": "AWS::EC2::EIP",
+    },
+    "ProviderSpotInstanceInstanceProfile803B976D": Object {
+      "Properties": Object {
+        "Roles": Array [
+          Object {
+            "Ref": "ProviderSpotInstanceInstanceRole27054486",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::InstanceProfile",
+    },
+    "ProviderSpotInstanceInstanceRole27054486": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "ec2.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "integ-stack/Provider/SpotInstance/SpotInstance",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ProviderSpotInstanceSpotFleetSg53682A1F": Object {
+      "Properties": Object {
+        "GroupDescription": "integ-stack/Provider/SpotInstance/SpotFleetSg",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "SecurityGroupIngress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "from 0.0.0.0/0:22",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "ToPort": 22,
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "Vpc8378EB38",
+        },
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+    },
+    "ProviderSpotInstancelaunchTemplateForInstanceLaunchTemplateDF176CD0": Object {
+      "Properties": Object {
+        "LaunchTemplateData": Object {
+          "ImageId": Object {
+            "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
+          },
+          "InstanceMarketOptions": Object {
+            "MarketType": "spot",
+            "SpotOptions": Object {
+              "InstanceInterruptionBehavior": "terminate",
+              "SpotInstanceType": "persistent",
+            },
+          },
+          "InstanceType": "t3.large",
+          "TagSpecifications": Array [
+            Object {
+              "ResourceType": "instance",
+              "Tags": Array [
+                Object {
+                  "Key": "Name",
+                  "Value": "integ-stack/launchTemplateForInstance",
+                },
+              ],
+            },
+          ],
+          "UserData": Object {
+            "Fn::Base64": "#!/bin/bash",
+          },
+        },
+      },
+      "Type": "AWS::EC2::LaunchTemplate",
     },
     "Vpc8378EB38": Object {
       "Properties": Object {

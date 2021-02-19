@@ -4,7 +4,7 @@
 
 # `cdk-ec2spot`
 
-CDK construct library that allows you to create EC2 Spot instances with AWS AutoScaling Group or SpotFleet
+CDK construct library that allows you to create EC2 Spot instances with `AWS AutoScaling Group`, `Spot Fleet` or just single `Spot Instance`.
 
 # Sample
 
@@ -27,13 +27,21 @@ provider.createAutoScalingGroup('SpotASG', {
 
 # EC2 Spot Fleet support
 
-In addition to EC2 AutoScaling Group, you may use `createSpotFleet()` to create an EC2 Spot Fleet:
+In addition to EC2 AutoScaling Group, you may use `createFleet()` to create an EC2 Spot Fleet:
 
 
 ```ts
-provider.createSpotFleet('SpotFleet', {
+provider.createFleet('SpotFleet', {
   vpc,
   defaultCapacitySize: 2,
   instanceType: new ec2.InstanceType('t3.large'),
 });
+```
+
+# Single Spot Instnce
+
+If you just need single spot instance without any autoscaling group or spot fleet, use `createInstance()`:
+
+```ts
+provider.createInstance('SpotInstance', { vpc })
 ```

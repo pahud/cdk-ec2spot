@@ -19,17 +19,22 @@ export class IntegTesting {
 
     const vpc = provider.getOrCreateVpc(stack);
 
+    // create a autoscaling group with spot instances
     provider.createAutoScalingGroup('SpotASG', {
       vpc,
       defaultCapacitySize: 2,
       instanceType: new ec2.InstanceType('m5.large'),
     });
 
-    provider.createSpotFleet('SpotFleet', {
+    // create a spot fleet
+    provider.createFleet('SpotFleet', {
       vpc,
       defaultCapacitySize: 2,
       instanceType: new ec2.InstanceType('t3.large'),
     });
+
+    // create single spot instance
+    provider.createInstance('SpotInstance', { vpc });
 
     this.stack = [stack];
   }

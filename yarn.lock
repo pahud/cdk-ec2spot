@@ -5115,7 +5115,7 @@ projen-automate-it@^0.0.4:
   dependencies:
     projen "^0.16.12"
 
-projen@^0.16.11, projen@^0.16.12:
+projen@^0.16.12:
   version "0.16.12"
   resolved "https://registry.yarnpkg.com/projen/-/projen-0.16.12.tgz#ba7363c5e56230741840b624045cc7f5856fea69"
   integrity sha512-5AjUazBb9EXTkAi66w9Z9qhMLwP9hKPUJ3dIlpyFpMXIJE5io75UkRMLdZ2ExoDKg4+M+5k2F1V2hRwgYHb1hQ==

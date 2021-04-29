@@ -20,16 +20,6 @@ Object {
       },
     },
   },
-  "Parameters": Object {
-    "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": Object {
-      "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2",
-      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
-    },
-    "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": Object {
-      "Default": "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2",
-      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
-    },
-  },
   "Resources": Object {
     "Provider2SpotInstance2EIPBEC056AF": Object {
       "Type": "AWS::EC2::EIP",
@@ -73,9 +63,7 @@ Object {
             },
           },
         ],
-        "ImageId": Object {
-          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-        },
+        "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}",
         "InstanceType": "t3.large",
         "LaunchTemplate": Object {
           "LaunchTemplateId": Object {
@@ -152,9 +140,7 @@ service docker start",
     "Provider2SpotInstance2launchTemplateForInstanceLaunchTemplateAE60D85F": Object {
       "Properties": Object {
         "LaunchTemplateData": Object {
-          "ImageId": Object {
-            "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-          },
+          "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}",
           "InstanceMarketOptions": Object {
             "MarketType": "spot",
             "SpotOptions": Object {
@@ -232,9 +218,7 @@ service docker start",
               ],
             },
           },
-          "ImageId": Object {
-            "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-          },
+          "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}",
           "InstanceMarketOptions": Object {
             "MarketType": "spot",
             "SpotOptions": Object {},
@@ -393,9 +377,7 @@ service docker start",
         "IamInstanceProfile": Object {
           "Ref": "ProviderSpotASGInstanceProfileC6F2BBCE",
         },
-        "ImageId": Object {
-          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-        },
+        "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2}}",
         "InstanceType": "t3.large",
         "SecurityGroups": Array [
           Object {
@@ -422,9 +404,7 @@ service docker start",
               ],
             },
           },
-          "ImageId": Object {
-            "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-          },
+          "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}",
           "InstanceMarketOptions": Object {
             "MarketType": "spot",
             "SpotOptions": Object {},
@@ -506,9 +486,7 @@ service docker start",
             },
           },
         ],
-        "ImageId": Object {
-          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-        },
+        "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}",
         "InstanceType": "t3.large",
         "LaunchTemplate": Object {
           "LaunchTemplateId": Object {
@@ -613,9 +591,7 @@ service docker start",
     "ProviderSpotInstancelaunchTemplateForInstanceLaunchTemplateDF176CD0": Object {
       "Properties": Object {
         "LaunchTemplateData": Object {
-          "ImageId": Object {
-            "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-          },
+          "ImageId": "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}",
           "InstanceMarketOptions": Object {
             "MarketType": "spot",
             "SpotOptions": Object {

@@ -15,7 +15,8 @@
     "build": "npx projen build",
     "test:watch": "npx projen test:watch",
     "test:update": "npx projen test:update",
-    "projen:upgrade": "npx projen projen:upgrade",
+    "upgrade-dependencies": "npx projen upgrade-dependencies",
+    "upgrade-projen": "npx projen upgrade-projen",
     "default": "npx projen default",
     "watch": "npx projen watch",
     "package": "npx projen package",
@@ -47,7 +48,8 @@
     "jsii-docgen": "^1.8.25",
     "jsii-pacmak": "^1.17.1",
     "json-schema": "^0.3.0",
-    "projen": "^0.17.92",
+    "npm-check-updates": "^11",
+    "projen": "^0.18.5",
     "standard-version": "^9",
     "ts-jest": "^26.4.4",
     "typescript": "^3.9.5"
@@ -65,12 +67,9 @@
     "@aws-cdk/aws-ec2": "^1.73.0",
     "@aws-cdk/aws-iam": "^1.73.0",
     "@aws-cdk/core": "^1.73.0",
-    "cdk-spot-one": "^0.6.156",
-    "projen-automate-it": "^0.0.4"
+    "cdk-spot-one": "^0.6.156"
   },
-  "bundledDependencies": [
-    "projen-automate-it"
-  ],
+  "bundledDependencies": [],
   "keywords": [
     "cdk"
   ],

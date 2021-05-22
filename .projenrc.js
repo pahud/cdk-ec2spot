@@ -1,7 +1,4 @@
 const { AwsCdkConstructLibrary } = require('projen');
-const { Automation } = require('projen-automate-it');
-
-const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new AwsCdkConstructLibrary({
   author: 'Pahud Hsieh',
@@ -20,13 +17,9 @@ const project = new AwsCdkConstructLibrary({
   ],
   deps: [
     'cdk-spot-one',
-    'projen-automate-it',
   ],
   peerDeps: [
     'cdk-spot-one',
-  ],
-  bundledDeps: [
-    'projen-automate-it',
   ],
   publishToPypi: {
     distName: 'cdk-ec2spot',
@@ -36,12 +29,6 @@ const project = new AwsCdkConstructLibrary({
   defaultReleaseBranch: ['main'],
 });
 
-const automation = new Automation(project, {
-  automationToken: AUTOMATION_TOKEN,
-});
-automation.autoApprove();
-automation.autoMerge();
-automation.projenYarnUpgrade();
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'yarn-error.log'];
 project.npmignore.exclude(...common_exclude);

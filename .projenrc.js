@@ -15,6 +15,9 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-autoscaling',
   ],
+  autoApproveOptions: {
+    secret: 'PROJEN_GITHUB_TOKEN',
+  },
   deps: [
     'cdk-spot-one',
   ],
@@ -25,8 +28,7 @@ const project = new AwsCdkConstructLibrary({
     distName: 'cdk-ec2spot',
     module: 'cdk_ec2spot',
   },
-  releaseBranches: ['main'],
-  defaultReleaseBranch: ['main'],
+  defaultReleaseBranch: 'main',
 });
 
 

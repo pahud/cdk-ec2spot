@@ -1,4 +1,6 @@
-const { AwsCdkConstructLibrary } = require('projen');
+const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism } = require('projen');
+
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new AwsCdkConstructLibrary({
   author: 'Pahud Hsieh',
@@ -8,7 +10,6 @@ const project = new AwsCdkConstructLibrary({
   jsiiFqn: 'projen.AwsCdkConstructLibrary',
   name: 'cdk-ec2spot',
   repositoryUrl: 'https://github.com/pahud/cdk-ec2spot.git',
-  dependabot: false,
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/aws-ec2',
@@ -29,6 +30,16 @@ const project = new AwsCdkConstructLibrary({
     module: 'cdk_ec2spot',
   },
   defaultReleaseBranch: 'main',
+  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      secret: AUTOMATION_TOKEN,
+    },
+  }),
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['pahud'],
+  },
 });
 
 

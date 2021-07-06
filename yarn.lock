@@ -1841,10 +1841,10 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk-spot-one@^0.6.198:
-  version "0.6.198"
-  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.198.tgz#ff35866be9d0e5a529f06d14bafe59b8184ad269"
-  integrity sha512-042xgMQ9M/X0W/kBre7C5ruGI8DKomkdO23DkADXyBV7GtKrh3TGHtrut1EG5vYyuwiE8CnB6sBIo5HFTJzEEw==
+cdk-spot-one@^0.6.199:
+  version "0.6.199"
+  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.199.tgz#881a7149427bcedbfc25de98711fbf23297c5267"
+  integrity sha512-P7WF0CmcvIEhJLCJBFBP/F1+EKNIrP7gv47A7REe4tdKN++SW6Wj2OwFo6GxlQOWbbzuUYcgc19AppqRXbeGuQ==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.77.0"
     "@aws-cdk/aws-iam" "^1.77.0"
@@ -2606,9 +2606,9 @@ ecc-jsbn@~0.1.1:
     safer-buffer "^2.1.0"
 
 electron-to-chromium@^1.3.723:
-  version "1.3.767"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.767.tgz#62cb8de251d09eea740adcbcc4edca230da81a05"
-  integrity sha512-KYFEZ581N+ovKHR6PJawl+ei5tm0ikX9lKQ+tJnbJhamqve/iowMUiF9073g6A2AVAxqpXp9/gELRQYIdg4pzg==
+  version "1.3.768"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.768.tgz#bbe47394f0073c947168589b7d19388518a7a9a9"
+  integrity sha512-I4UMZHhVSK2pwt8jOIxTi3GIuc41NkddtKT/hpuxp9GO5UWJgDKTBa4TACppbVAuKtKbMK6BhQZvT5tFF1bcNA==
 
 emittery@^0.7.1:
   version "0.7.2"
@@ -5872,10 +5872,10 @@ progress@^2.0.0, progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.24.11:
-  version "0.24.11"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.24.11.tgz#cd5d38556dfa90ec7328187e26a45179509dfc8b"
-  integrity sha512-4PWDRk5KI43ofoHrlx0n3W2vNkajAy6wdr5ZiYRojc13aYP0aqDH97OEbrlQx7K4b2FAVEOUw2RP9kcmm4ouBQ==
+projen@^0.25.3:
+  version "0.25.3"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.25.3.tgz#d946cc4a2b21cb8dd2112d6c6852187dc3850245"
+  integrity sha512-GXOoPsFPvXAAezSVr10A4jpF7pK9m2rRgm4PVLUa9qQIhwnC4w6VPN958Q3+fxyyCkHDr1oznHdC5MIX5gHE4g==
   dependencies:
     "@iarna/toml" "^2.2.5"
     chalk "^4.1.1"

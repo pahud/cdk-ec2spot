@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/pahud/cdk-ec2spot/compare/v0.0.68...v0.1.0) (2021-07-06)
+
 ### [0.0.37](https://github.com/pahud/cdk-ec2spot/compare/v0.0.36...v0.0.37) (2021-02-23)
 
 ### [0.0.36](https://github.com/pahud/cdk-ec2spot/compare/v0.0.35...v0.0.36) (2021-02-23)

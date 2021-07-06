@@ -23,6 +23,7 @@
     "eslint": "npx projen eslint",
     "compat": "npx projen compat",
     "docgen": "npx projen docgen",
+    "release": "npx projen release",
     "projen": "npx projen",
     "start": "npx projen start"
   },
@@ -49,7 +50,7 @@
     "jsii-pacmak": "^1.30.0",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "^0.24.11",
+    "projen": "^0.25.3",
     "standard-version": "^9",
     "ts-jest": "^26.5.6",
     "typescript": "^3.9.10"
@@ -59,7 +60,7 @@
     "@aws-cdk/aws-ec2": "^1.73.0",
     "@aws-cdk/aws-iam": "^1.73.0",
     "@aws-cdk/core": "^1.73.0",
-    "cdk-spot-one": "^0.6.198",
+    "cdk-spot-one": "^0.6.199",
     "constructs": "^3.2.27"
   },
   "dependencies": {
@@ -67,7 +68,7 @@
     "@aws-cdk/aws-ec2": "^1.73.0",
     "@aws-cdk/aws-iam": "^1.73.0",
     "@aws-cdk/core": "^1.73.0",
-    "cdk-spot-one": "^0.6.198"
+    "cdk-spot-one": "^0.6.199"
   },
   "bundledDependencies": [],
   "keywords": [

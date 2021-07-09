@@ -65,17 +65,6 @@ Object {
       ],
       "Properties": Object {
         "AvailabilityZone": "dummy1a",
-        "BlockDeviceMappings": Array [
-          Object {
-            "DeviceName": "/dev/xvda",
-            "Ebs": Object {
-              "VolumeSize": 60,
-            },
-          },
-        ],
-        "ImageId": Object {
-          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-        },
         "InstanceType": "t3.large",
         "LaunchTemplate": Object {
           "LaunchTemplateId": Object {
@@ -105,14 +94,6 @@ Object {
             "Value": "integ-stack/Provider2/SpotInstance2/SpotInstance",
           },
         ],
-        "UserData": Object {
-          "Fn::Base64": "#!/bin/bash
-yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-yum install -y docker
-usermod -aG docker ec2-user
-usermod -aG docker ssm-user
-service docker start",
-        },
       },
       "Type": "AWS::EC2::Instance",
     },
@@ -140,6 +121,9 @@ service docker start",
           ],
           "Version": "2012-10-17",
         },
+        "ManagedPolicyArns": Array [
+          "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+        ],
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -152,12 +136,29 @@ service docker start",
     "Provider2SpotInstance2launchTemplateForInstanceLaunchTemplateAE60D85F": Object {
       "Properties": Object {
         "LaunchTemplateData": Object {
+          "BlockDeviceMappings": Array [
+            Object {
+              "DeviceName": "/dev/xvda",
+              "Ebs": Object {
+                "VolumeSize": 10,
+              },
+            },
+          ],
+          "IamInstanceProfile": Object {
+            "Arn": Object {
+              "Fn::GetAtt": Array [
+                "Provider2SpotInstance2SpotInstanceInstanceProfile77B412C1",
+                "Arn",
+              ],
+            },
+          },
           "ImageId": Object {
             "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
           },
           "InstanceMarketOptions": Object {
             "MarketType": "spot",
             "SpotOptions": Object {
+              "InstanceInterruptionBehavior": "stop",
               "SpotInstanceType": "persistent",
             },
           },
@@ -174,7 +175,12 @@ service docker start",
             },
           ],
           "UserData": Object {
-            "Fn::Base64": "#!/bin/bash",
+            "Fn::Base64": "#!/bin/bash
+yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+yum install -y docker
+usermod -aG docker ec2-user
+usermod -aG docker ssm-user
+service docker start",
           },
         },
       },
@@ -498,17 +504,6 @@ service docker start",
       ],
       "Properties": Object {
         "AvailabilityZone": "dummy1a",
-        "BlockDeviceMappings": Array [
-          Object {
-            "DeviceName": "/dev/xvda",
-            "Ebs": Object {
-              "VolumeSize": 60,
-            },
-          },
-        ],
-        "ImageId": Object {
-          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
-        },
         "InstanceType": "t3.large",
         "LaunchTemplate": Object {
           "LaunchTemplateId": Object {
@@ -538,14 +533,6 @@ service docker start",
             "Value": "integ-stack/Provider/SpotInstance/SpotInstance",
           },
         ],
-        "UserData": Object {
-          "Fn::Base64": "#!/bin/bash
-yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-yum install -y docker
-usermod -aG docker ec2-user
-usermod -aG docker ssm-user
-service docker start",
-        },
       },
       "Type": "AWS::EC2::Instance",
     },
@@ -576,6 +563,9 @@ service docker start",
           ],
           "Version": "2012-10-17",
         },
+        "ManagedPolicyArns": Array [
+          "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+        ],
         "Tags": Array [
           Object {
             "Key": "Name",
@@ -613,12 +603,29 @@ service docker start",
     "ProviderSpotInstancelaunchTemplateForInstanceLaunchTemplateDF176CD0": Object {
       "Properties": Object {
         "LaunchTemplateData": Object {
+          "BlockDeviceMappings": Array [
+            Object {
+              "DeviceName": "/dev/xvda",
+              "Ebs": Object {
+                "VolumeSize": 10,
+              },
+            },
+          ],
+          "IamInstanceProfile": Object {
+            "Arn": Object {
+              "Fn::GetAtt": Array [
+                "ProviderSpotInstanceInstanceProfile803B976D",
+                "Arn",
+              ],
+            },
+          },
           "ImageId": Object {
             "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
           },
           "InstanceMarketOptions": Object {
             "MarketType": "spot",
             "SpotOptions": Object {
+              "InstanceInterruptionBehavior": "stop",
               "SpotInstanceType": "persistent",
             },
           },
@@ -635,7 +642,12 @@ service docker start",
             },
           ],
           "UserData": Object {
-            "Fn::Base64": "#!/bin/bash",
+            "Fn::Base64": "#!/bin/bash
+yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+yum install -y docker
+usermod -aG docker ec2-user
+usermod -aG docker ssm-user
+service docker start",
           },
         },
       },
